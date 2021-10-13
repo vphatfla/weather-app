@@ -97,12 +97,7 @@ async function fetchingCityName(lat, lon) {
     console.log(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
     const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
     const data = await response.json();
-    let cityName;
-    try {
-      cityName = data[0].local_names.en; // get the name in en
-    } catch (error) {
-      cityName = data[0].local_names; // get the name in en
-    }
+    const cityName = data[0].name;
     console.log(data);
     // saveCityName(cityName);
     run(cityName, getUnitChoice());
