@@ -5,7 +5,7 @@ function saveUnitChoice(unitChoice) {
 // function get unitchoice from localstorage
 export function getUnitChoice() {
   try {
-    if (localStorage.getItem('unitChoice') !== '') return localStorage.getItem('unitChoice');
+    if (localStorage.getItem('unitChoice') === 'c' || localStorage.getItem('unitChoice') === 'f') return localStorage.getItem('unitChoice');
     saveUnitChoice('f');
     return localStorage.getItem('unitChoice');
   } catch (error) {
