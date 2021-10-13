@@ -7,6 +7,7 @@ export function getUnitChoice() {
   try {
     return localStorage.getItem('unitChoice');
   } catch (error) {
+    console.log(error);
     saveUnitChoice('f');
     return localStorage.getItem('unitChoice');
   }

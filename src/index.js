@@ -30,8 +30,8 @@ function checkZip(string) {
 
 async function run(inputValue, unitOption) {
   document.getElementById('err').innerHTML = '';
-  let syntax;
-  let unitSyntax;
+  let syntax = '';
+  let unitSyntax = '';
   // get fetching in C of F
   if (unitOption === 'f') unitSyntax = '&units=imperial';
   if (unitOption === 'c') unitSyntax = '&units=metric';
@@ -84,6 +84,7 @@ function getCityName() {
   try {
     return localStorage.getItem('cityName');
   } catch (error) {
+    console.log(error);
     return false;
   }
 }
