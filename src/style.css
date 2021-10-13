@@ -1,24 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 html{
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:cover;
     height: 100%;
 }
 body{
     height: 100%;
+    font-family: 'Nunito', sans-serif;
 }
+::placeholder {
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: black;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: black;
+  }
 #inputClick{
-    width: 20px;
+    width: 17px;
+    cursor: pointer;
+}
+.inputDiv{
+    
+    height: fit-content;
+    position: fixed;
+    right: 0;
+    margin-right: 5%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#err{
+    color: red;
 }
 .input{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    right: 0;
-    margin-right: 5%;
-    margin-top: 4%;
+    border-bottom: 1px solid black;
 }
-.input input{
-    border: none;
+input{
+    border-radius: 5px;
+    border: transparent;
+    background-color:transparent;
+    width:auto;
+    width: 170px;
+    font-size: 16px;
 }
 .input input:focus{
     outline: none;
@@ -31,10 +69,49 @@ body{
     justify-content: center;
 
 }
-.container div{
+.cityInfo, .weatherInfo{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.unitChoice{
+    display: flex;
+    flex-direction: row;
+}
+.icon{
+    height: 25px;
+}
+.unit{
+    opacity: 0.5;
+    cursor: pointer;
+}
+.chosenUnit{
+    opacity: 1;
+}
+h2{
+    font-size: 50px;
+}
+.cityInfo p{
+    font-size: 22px;
+}
+h3{
+    font-size: 38px;
+}
+.weatherInfo p{
+    font-size: 20px;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.footer a{
+    text-decoration: none;
+    color: blue;
 }

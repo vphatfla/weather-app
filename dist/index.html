@@ -4,9 +4,12 @@
         <title>Weather App</title>
     </head>
     <body>
-        <div class='input'>
-            <input type='text' id='fname' name='fname' placeholder="City name or Zip code">
-            <img id='inputClick'>
+        <div class='inputDiv'>
+                <div class='input'>
+                <input type='text' id='fname' name='fname' placeholder="City name or Zip code">
+                <img id='inputClick'>
+            </div>
+            <p id = 'err'></p>
         </div>
 
         <div class='container'>
@@ -19,8 +22,18 @@
                 <p id='temp'></p>
                 <p id='wind'></p>
                 <p id='humidity'></p>
+                <div class='unitChoice'>
+                    <img id='c' class='icon unit'>
+                    <img id='thermometer' class='icon'>
+                    <img id='f' class="icon unit">
+                </div>
             </div>
         </div>
+
+        <div class='footer'>
+            <p>Project from TOP by <a href="https://github.com/vphatfla" target="_blank">Van Phat</a></p>
+        </div>
+
         <script src="main.js"></script>
     </body>
 </html>
