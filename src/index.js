@@ -5,12 +5,13 @@ import thermometer from './images/thermometer.png';
 import searchIcon from './images/search-icon.png';
 import displayData from './display';
 import { eventUnitChoice, getUnitChoice } from './unitChoice';
+import apiKeyHidden from '../configKey';
 
 // copy of data for unitChoice
 // event for unit choice
 eventUnitChoice();
 
-const apiKey = 'b8819f2fe43d597b6aece5e14e483988'; // default API key
+const apiKey = apiKeyHidden; // default API key
 // action for input enter or click
 
 const inputCtn = document.querySelector('.input');
