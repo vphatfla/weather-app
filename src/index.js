@@ -28,11 +28,12 @@ function checkZip(string) {
   return true;
 }
 
-async function run(inputValue, unitOption) {
+async function run(inputValue) {
   document.getElementById('err').innerHTML = '';
   let syntax = '';
   let unitSyntax = '';
   // get fetching in C of F
+  const unitOption = getUnitChoice();
   if (unitOption === 'f') unitSyntax = '&units=imperial';
   if (unitOption === 'c') unitSyntax = '&units=metric';
   // get fetching in zip code or cityname
@@ -65,7 +66,7 @@ inputField.addEventListener('keyup', (event) => {
 
 imgButton.addEventListener('click', () => {
   const inputValue = inputField.value;
-  run(inputValue, getUnitChoice());
+  run(inputValue);
 });
 
 // functions
@@ -100,11 +101,11 @@ async function fetchingCityName(lat, lon) {
     const cityName = data[0].name;
     console.log(data);
     // saveCityName(cityName);
-    run(cityName, getUnitChoice());
+    run(cityName);
   } catch (err) {
     console.log('error occurs in fetching city name ', err);
     saveCityName('Fort Myers'); // set default cityName to fort myers
-    run(getCityName(), getUnitChoice()); // run default location in fort myers;
+    run(getCityName()); // run default location in fort myers;
   }
 }
 // get user's location
@@ -125,7 +126,7 @@ function errorLocationHandler(error) {
       break;
     default:
       saveCityName('Fort Myers'); // set default cityName to fort myers
-      run(getCityName(), getUnitChoice()); // run default location in fort myers;
+      run(getCityName()); // run default location in fort myers;
   }
 }
 // success geolocation function
@@ -139,6 +140,6 @@ function getPosition(position) {
 // means that !getcityname = false = already has a saved location
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(getPosition, errorLocationHandler);
-} else run(getCityName(), getUnitChoice());
+} else run(getCityName());
 
 // default page
