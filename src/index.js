@@ -50,7 +50,6 @@ async function run(inputValue) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?${syntax}${unitSyntax}&appid=${apiKey}`);
     const data = await response.json();
     displayData(data);
-    console.log(data);
   } catch (error) {
     document.getElementById('err').innerHTML = 'Cound not find the location';
   }
@@ -94,12 +93,9 @@ function getCityName() {
 // then use RUN() based on the cityName from fetching data(lat,lon)
 async function fetchingCityName(lat, lon) {
   try {
-    console.log('now fetchingcityname');
-    console.log(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
     const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
     const data = await response.json();
     const cityName = data[0].name;
-    console.log(data);
     // saveCityName(cityName);
     run(cityName);
   } catch (err) {
@@ -133,7 +129,6 @@ function errorLocationHandler(error) {
 function getPosition(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
-  console.log('lat = ', lat, 'long = ', lon);
   fetchingCityName(lat, lon);
 }
 // using navigator api

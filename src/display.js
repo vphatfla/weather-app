@@ -14,7 +14,6 @@ import { getUnitChoice } from './unitChoice';
 // get today
 const getDayTime = () => {
   const today = new Date();
-  console.log(today.getDate());
   const options = {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
   };
