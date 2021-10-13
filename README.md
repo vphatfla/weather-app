@@ -19,10 +19,11 @@ npm install eslint --save-dev
 Go to [here](https://openweathermap.org/), sign up and get your free api key. 
 ####4. Create configKey.js
 ```
-dist
-src
-...
-configKey.js
+weather-app
+  dist
+  src
+  ...
+  configKey.js
 ```
 
 Inside configKey.js:
