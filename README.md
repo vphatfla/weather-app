@@ -1,5 +1,6 @@
 # weather-app
-## What's up, check the website out, recommend using pc, lap with landscape screen ->>>  [page](https://vphatfla.github.io/weather-app/).
+## What's up, check the website out ->>>  [page](https://vphatfla.github.io/weather-app/) 
+* recommend using pc, lap with landscape screen
 ----
 ### Customize it
 ####1. Git clone:
