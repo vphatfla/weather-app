@@ -93,13 +93,16 @@ function getCityName() {
 // then use RUN() based on the cityName from fetching data(lat,lon)
 async function fetchingCityName(lat, lon) {
   try {
+    console.log('now fetchingcityname');
+    console.log(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
     const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`);
     const data = await response.json();
     const cityName = data[0].local_names.en; // get the name in en
-    saveCityName(cityName);
+    console.log(data);
+    // saveCityName(cityName);
     run(cityName, getUnitChoice());
   } catch (err) {
-    console.error(err);
+    console.log('error occurs in fetching city name ', err);
     saveCityName('Fort Myers'); // set default cityName to fort myers
     run(getCityName(), getUnitChoice()); // run default location in fort myers;
   }
@@ -129,11 +132,12 @@ function errorLocationHandler(error) {
 function getPosition(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
+  console.log('lat = ', lat, 'long = ', lon);
   fetchingCityName(lat, lon);
 }
 // using navigator api
 // means that !getcityname = false = already has a saved location
-if (navigator.geolocation && !getCityName()) {
+if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(getPosition, errorLocationHandler);
 } else run(getCityName(), getUnitChoice());
 
